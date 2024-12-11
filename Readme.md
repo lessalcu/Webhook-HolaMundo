@@ -1,101 +1,100 @@
-# Webhook REST API con Go y Swagger
+# Webhook REST API with Go and Swagger
 
-Este proyecto implementa un servidor REST API en Go que maneja Webhooks. Además, está documentado con Swagger para facilitar su uso y pruebas a través de una interfaz web.
+This project implements a REST API server in Go that handles Webhooks. It is also documented with Swagger to facilitate its use and testing through a web interface.
 
-## Descripción
+## Description
 
-Esta API es capaz de recibir peticiones POST en el endpoint `/webhook`, que aceptan un payload en formato JSON. La respuesta es una confirmación con el status de la operación.
+This API is capable of receiving POST requests on the `/webhook` endpoint, which accept a payload in JSON format. The response is a confirmation with the status of the operation.
 
 ### Endpoints
 
 #### `POST /webhook`
-Recibe una notificación en formato JSON.
+Receives a notification in JSON format.
 
-##### Parámetros
-- **payload**: Un objeto JSON que contiene los datos del webhook. 
+##### Parameters
+- **payload**: A JSON object containing the webhook data.
 
-##### Respuesta exitosa
+##### Successful response
 ```json
 {
-  "status": "received",
-  "data": { ... }
+"status": "received",
+"data": { ... }
 }
 ```
 
-##### Ejemplo de peticion
+##### Sample request
 
 ```bash
 curl -X POST "http://localhost:8080/webhook" -H "Content-Type: application/json" -d '{"event": "test_event"}'
 ```
 
-##### Respuesta de ejemplo
+##### Sample response
 
 ```json
 {
-  "status": "received",
-  "data": {
-    "event": "test_event"
-  }
+"status": "received",
+"data": {
+"event": "test_event"
+}
 }
 ```
 
-## Instalación
+## Installation
 
-### Clonar el repositorio
+### Clone the repository
 
 ```bash
-git clone https://github.com/lessalcu/Webhook-HolaMundo.git
-cd Webhook-HolaMundo
+git clone https://github.com/lessalcu/Webhook-HelloWorld.git
+cd Webhook-HelloWorld
 ```
 
-### Ejecutar la aplicación localmente
+### Run the application locally
 
-1. Asegúrate de tener Go instalado (versión 1.20 o superior).
-2. Instalar las dependencias:
+1. Make sure You must have Go installed (version 1.20 or higher).
+2. Install the dependencies:
 
-   ```bash
-   go mod tidy
-   ```
+```bash
+go mod tidy
+```
 
-3. Generar la documentación de Swagger:
+3. Generate the Swagger documentation:
 
-   ```bash
-   swag init
-   ```
+```bash
+swag init
+```
 
-4. Ejecuta la aplicación:
+4. Run the application:
 
-   ```bash
-   go run main.go
-   ```
+```bash
+go run main.go
+```
 
-5. Accede a la documentación Swagger en [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html).
+5. Access the Swagger documentation at [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html).
 
 ## Docker
 
-### Descargar la imagen desde Docker Hub
+### Download the image from Docker Hub
 
-1. Ddescargar la imagen de Docker Hub:
+1. Download the image from Docker Hub:
 
-    ```bash
-    docker pull lssalas/hello-world-webhook:latest
-    ```
+```bash
+docker pull lssalas/hello-world-webhook:latest
+```
 
-2. Ejecutar el contenedor:
+2. Run the container:
 
-   ```bash
-   docker run -p 8080:8080 --name hello-world-webhook-container lssalas/hello-world-webhook
-   ```
+```bash
+docker run -p 8080:8080 --name hello-world-webhook-container lssalas/hello-world-webhook
+```
 
-2. Accede a la API y a Swagger a través de [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html).
+2. Access the API and Swagger via [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html).
 
 ## Swagger
 
-La documentación de Swagger está disponible en la ruta:
+Swagger documentation is available at:
 
 ```
 http://localhost:8080/swagger/index.html
 ```
 
-Esta interfaz permite interactuar con la API directamente desde tu navegador.
-
+This interface allows you to interact with the API directly from your browser.
